@@ -53,6 +53,9 @@ export default class App extends Component {
 
   render () {
     return <div id='app'>
+      <h1>
+        <span role='img' aria-label='computer'>💻</span>  Ticker <span role='img' aria-label='clock'>⏰</span>
+      </h1>
       <p className='date'>
         {this.state.startedAt.format('LL LTS')}
         <CopyToClipboard text={this.state.startedAt.format('DD/MMM/YY hh:mm A')}>
