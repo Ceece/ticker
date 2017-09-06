@@ -46,7 +46,7 @@ export default class App extends Component {
 
     this.setState({ elapsed })
 
-    if (!this.startedAt) {
+    if (this.state.elapsed === 0) {
       this.setState({ startedAt: moment() })
     }
   }
@@ -54,7 +54,7 @@ export default class App extends Component {
   render () {
     return <div id='app'>
       <p className='date'>
-        {this.state.startedAt.format('LLL')}
+        {this.state.startedAt.format('LL LTS')}
         <CopyToClipboard text={this.state.startedAt.format('DD/MMM/YY hh:mm A')}>
           <button className='no-border'><i className='fa fa-paste' /></button>
         </CopyToClipboard>
