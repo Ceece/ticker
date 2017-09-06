@@ -25,7 +25,7 @@ export default class App extends Component {
   }
 
   handleStart () {
-    if (!this.startedAt && this.ticking === false) {
+    if (this.state.elapsed === 0 && this.ticking === false) {
       this.ticking = true
       this.setState({
         startedAt: moment(),
@@ -42,8 +42,7 @@ export default class App extends Component {
 
   tick () {
     const elapsed = this.totalElapsed +
-      this.ticking && new Date().getTime() -
-      parseInt(this.state.resumedAt.format('x'), 10)
+      (this.ticking && new Date().getTime() - parseInt(this.state.resumedAt.format('x'), 10))
 
     this.setState({ elapsed })
 
@@ -53,7 +52,7 @@ export default class App extends Component {
   }
 
   render () {
-    return <div id='clock'>
+    return <div id='app'>
       <p className='date'>
         {this.state.startedAt.format('LLL')}
         <CopyToClipboard text={this.state.startedAt.format('DD/MMM/YY hh:mm A')}>

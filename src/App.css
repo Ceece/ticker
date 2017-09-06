@@ -14,7 +14,7 @@ p {
   padding: 0;
 }
 
-#clock {
+#app {
   font-family: 'Share Tech Mono', monospace;
   color: #ffffff;
   text-align: center;
@@ -27,24 +27,24 @@ p {
   text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
 }
 
-#clock .time {
+#app .time {
   letter-spacing: 0.05em;
   font-size: 80px;
   padding: 5px 0;
 }
 
-#clock .date {
+#app .date {
   letter-spacing: 0.1em;
   font-size: 24px;
 }
 
-#clock .text {
+#app .text {
   letter-spacing: 0.1em;
   font-size: 12px;
   padding: 20px 0 0;
 }
 
-#clock button {
+#app button {
   font-family: 'Share Tech Mono', monospace;
   color: #ffffff;
   background-color: transparent;
@@ -56,7 +56,7 @@ p {
   margin: 5px;
 }
 
-#clock .no-border {
+#app .no-border {
   border: none;
   box-shadow: none;
 }
