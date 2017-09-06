@@ -32,10 +32,10 @@ export default class App extends Component {
         resumedAt: moment()
       })
     } else if (this.ticking) {
-      this.totalElapsed += new Date().getTime() - parseInt(this.state.resumedAt.format('x'))
+      this.totalElapsed += new Date().getTime() - parseInt(this.state.resumedAt.format('x'), 10)
       this.ticking = false
     } else {
-      this.state.resumedAt = new Date()
+      this.setState({ resumedAt: moment() })
       this.ticking = true
     }
   }
@@ -43,7 +43,7 @@ export default class App extends Component {
   tick () {
     const elapsed = this.totalElapsed +
       this.ticking && new Date().getTime() -
-      parseInt(this.state.resumedAt.format('x'))
+      parseInt(this.state.resumedAt.format('x'), 10)
 
     this.setState({ elapsed })
 
@@ -61,7 +61,7 @@ export default class App extends Component {
         </CopyToClipboard>
       </p>
       <p className='time'>
-        {moment.duration(this.state.elapsed).format('d h:m:s')}
+        {moment.duration(this.state.elapsed).format('hh:mm:ss', { trim: false })}
         <CopyToClipboard text={moment.duration(this.state.elapsed).format('d[d] h[h] m[m]')}>
           <button className='no-border'><i className='fa fa-paste' /></button>
         </CopyToClipboard>
